@@ -1,0 +1,30 @@
+{
+  "name": "sample-lib-mandarin",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "npm run build && npm publish",
+    "build": "npm run clean:dist && npm run build:js",
+    "clean:dist": "rm -rf ./dist ",
+    "build:js": "rollup -c"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js"
+    }
+  },
+  "keywords": [
+    "sample"
+  ],
+  "author": "Kim Hyeok Jun",
+  "files": [
+    "/dist"
+  ],
+  "license": "ISC",
+  "devDependencies": {
+    "rollup": "^2.70.0"
+  }
+}
